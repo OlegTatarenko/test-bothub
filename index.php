@@ -35,7 +35,7 @@ while(true) {
                 $bot->saveLastOffset($updateController->getUpdateID());
 
                 $message = $updateController->getMessage();
-                $chatId = $updateController->getChatID();
+                $chatId = (int) $updateController->getChatID();
 
                 $user = new User($message, $chatId, $pdo);
                 $userBalance = $user->getUserBalance();

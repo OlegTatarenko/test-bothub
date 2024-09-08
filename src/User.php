@@ -13,7 +13,7 @@ class User
     public function __construct($message, $chatId, $pdo)
     {
         $this->message = $message;
-        $this->chatId = $chatId;
+        $this->chatId = (int) $chatId;
         $this->pdo = $pdo;
     }
 
