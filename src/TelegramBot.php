@@ -12,7 +12,7 @@ class TelegramBot
     // Путь к файлу, где будет храниться последний обработанный update_id
     const OFFSET_FILE = 'offset.txt';
 
-    public function __construct(string $tokenBot, )
+    public function __construct(string $tokenBot)
     {
         $this->tokenBot = $tokenBot;
     }
@@ -27,9 +27,7 @@ class TelegramBot
         curl_close($ch);
 
         if ($res === false) {
-            throw new CurlError(
-                sprintf('CurlError Exception: %s', curl_error($ch))
-            );
+            throw new CurlError(sprintf('CurlError Exception: %s', curl_error($ch)));
         } else {
            return json_decode($res, true);
         }
@@ -50,9 +48,7 @@ class TelegramBot
         curl_close($ch);
 
         if ($res === false) {
-            throw new CurlError(
-                sprintf('CurlError Exception: %s', curl_error($ch))
-            );
+            throw new CurlError(sprintf('CurlError Exception: %s', curl_error($ch)));
         }
     }
 
@@ -74,7 +70,7 @@ class TelegramBot
     }
 
     // Сохраняем последний обработанный update_id, увеличенный на 1
-    function saveLastOffset(int $updateId): void
+    public function saveLastOffset(int $updateId): void
     {
         file_put_contents(self::OFFSET_FILE, $updateId + 1);
     }

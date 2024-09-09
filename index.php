@@ -14,8 +14,7 @@ $tokenBot ='7536828296:AAGJ-_hBntw2KW4ngSyskPoF5gYAp3PfKMU';
 
 $bot = new TelegramBot($tokenBot);
 
-function format(int|float $number):string
-{
+function format(int|float $number):string {
     return number_format($number, 2, '.', '');
 }
 

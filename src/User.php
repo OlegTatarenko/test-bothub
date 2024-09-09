@@ -10,10 +10,10 @@ class User
     private int $chatId;
     public PDO $pdo;
 
-    public function __construct($message, $chatId, $pdo)
+    public function __construct(string $message, int $chatId, PDO $pdo)
     {
         $this->message = $message;
-        $this->chatId = (int) $chatId;
+        $this->chatId = $chatId;
         $this->pdo = $pdo;
     }
 
@@ -47,8 +47,6 @@ class User
             'balance' => $balance,
         ]);
     }
-
-
 
     public function msgIsNumber():float|false
     {
